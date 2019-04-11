@@ -1,0 +1,54 @@
+<body>
+<div class="wrapper">
+<nav class="navbar navbar-default"style="background-color:#3B5998;";>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Navber" aria-expanded="false">
+        <span class="sr-only">ナビゲーションの切替</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Facebook</a>
+    </div><!-- /.navbar-header -->
+
+    <div class="collapse navbar-collapse" id="Navber">
+      <ul class="nav navbar-nav">
+      <li><%= link_to current_user.name,user_path(current_user.id)%></li>
+      <li><%= link_to '新しく投稿する', new_blog_path %></li>
+      <li><a href="/blogs">ホーム</a></li>
+      <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="search" class="form-control" placeholder="検索..." aria-label="検索...">
+        </div>
+        <button type="submit" class="btn btn-success">検索</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<h1>確認画面</h1>
+<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+  <!-- 確認画面でアップロードした画像を表示させるための記述 -->
+  <p>本文:<%= @blog.content %></p>
+  <%= image_tag(@blog.image.url, :size => "378x318") if @blog.image && @blog.image.url %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <br>
+  <%= form.submit "投稿する" %>
+<% end %>
+
+<%= form_with(model: @blog, url: new_blog_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "もどる", name: 'back' %>
+<% end %>
+
+<footer>
+<p>(c)Facebook</p>
+</footer>
+
+</div>
+</dody>

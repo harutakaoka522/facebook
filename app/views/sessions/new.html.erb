@@ -1,0 +1,30 @@
+<body>
+<div class="wrapper">
+<nav class="navbar navbar-default"style="background-color:#3B5998;";>
+      <a class="navbar-brand" href="#">Facebook</a>
+</nav>
+
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
+<h1>Log in</h1>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Log in" %>
+<% end %>
+
+
+
+<a class="new" href="/users/new">新規登録はこちら</a>
+<footer>
+<p>(c)Facebook</p>
+</footer>
+</div>
+</body>
