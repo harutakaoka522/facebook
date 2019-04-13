@@ -1,5 +1,6 @@
 <body>
 <div class="wrapper">
+<header>
 <nav class="navbar navbar-default"style="background-color:#3B5998;";>
   <div class="container-fluid">
     <div class="navbar-header">
@@ -14,10 +15,10 @@
 
     <div class="collapse navbar-collapse" id="Navber">
       <ul class="nav navbar-nav">
-      <li><%= link_to current_user.name,user_path(current_user.id)%></li>
-      <li><%= link_to '新しく投稿する', new_blog_path %></li>
-      <li><a href="/blogs">ホーム</a></li>
-      <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+       <li><%= link_to current_user.name,user_path(current_user.id)%></li>
+       <li><%= link_to '新しく投稿する', new_blog_path %></li>
+       <li><a href="/blogs">ホーム</a></li>
+       <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
       </ul>
       <form class="navbar-form navbar-right">
         <div class="form-group">
@@ -28,7 +29,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+</header>
 <h1>確認画面</h1>
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
   <!-- 確認画面でアップロードした画像を表示させるための記述 -->

@@ -5,6 +5,12 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  padding:0; /*　追加*/
+  margin:0; /*　追加*/
+  height: 100%;
+}
+
+header{
 }
 
 p, ol, ul, td {

@@ -1,5 +1,6 @@
 <body>
 <div class="wrapper">
+<header>
 <nav class="navbar navbar-default"style="background-color:#3B5998;";>
   <div class="container-fluid">
     <div class="navbar-header">
@@ -28,14 +29,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  
-<div class="top-image">
-<img alt="Genshi" height="700" src="/assets/genshi.jpg" width="100%" />
-</div>
+</header>
+
 
 <h2 id="notice"><%= notice %></h2>
-
-
 
     <% @blogs.each do |blog| %>
       <div class="toukou">    
@@ -49,7 +46,6 @@
       </ul>  
       </div>
     <% end %>
-
   <footer>
     <p>(c)Facebook</p>
   </footer>
